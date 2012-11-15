@@ -1,0 +1,24 @@
+---
+layout: post
+title: Modify Windows XP routing table
+tags:
+- networking
+- quickfire
+- tips
+- windows
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+---
+During some network changes I've found the need to modify the routing table.
+
+To change the default route on Windows XP (and possibly Windows Vista, 2000, etc) you use the route command.  The syntax is pretty simple, here is a quick example....
+<pre>
+route change 0.0.0.0 mask 0.0.0.0 172.18.12.120
+</pre>
+To delete or add routes, simply change the keyword change to either add or delete.
+<pre>
+route add 192.168.0.0 mask 255.255.255.0 10.10.0.50
+</pre>

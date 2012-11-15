@@ -1,0 +1,40 @@
+---
+layout: post
+title: Check speed of connected link in Linux
+tags:
+- linux
+- networking
+- quickfire
+- tips
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+---
+If you've ever wanted to check on the status of your Ethernet links, you've probably used the ip commands (or ifconfig) to view some basic information.  However, you might have noticed these commands do not tell you what the current link speed is, or other possibly important details.  That's where <code>ethtool</code> comes in.
+<pre>
+[jonmoore@megaton ~]$ sudo ethtool eth0
+Settings for eth0:
+Supported ports: [ MII ]
+Supported link modes:   10baseT/Half 10baseT/Full
+100baseT/Half 100baseT/Full
+1000baseT/Full
+Supports auto-negotiation: Yes
+Advertised link modes:  10baseT/Half 10baseT/Full
+100baseT/Half 100baseT/Full
+1000baseT/Full
+Advertised auto-negotiation: Yes
+Speed: <strong>1000Mb/s</strong>
+Duplex: <strong>Full</strong>
+Port: MII
+PHYAD: 1
+Transceiver: external
+Auto-negotiation: on
+Supports Wake-on: g
+Wake-on: d
+Link detected: yes</pre>
+
+As you can see, <code>ethtool</code> will show you the support modes, as well as the current mode.  From the above example, I'm currently connected at 1000Mb/s at Full Duplex.  Very nice.
+
+Check out the ethtool man page for more useful commands.

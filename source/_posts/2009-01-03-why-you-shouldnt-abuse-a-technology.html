@@ -1,0 +1,25 @@
+---
+layout: post
+title: Why you shouldn't abuse a technology..
+tags:
+- in the news
+- rants
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+---
+I was reading <a href="http://lifehacker.com/5122848/hard-lessons-in-the-importance-of-backups-journalspace-wiped-out">this</a> <a href="http://journalspace.com/this_is_the_way_the_world_ends/not_with_a_bang_but_a_whimper.html">story</a> on <a href="http://lifehacker.com">lifehacker</a> today and just wanted to drop my comments on the subject.
+
+Quite often, I've had this conversation with people..
+<blockquote><strong>Me: </strong>What's your backup scheme?
+<strong>Them:</strong> Oh, we have RAID.
+<strong>Me:</strong> Nice.  So what's your backup scheme?</blockquote>
+THe problem with is this, if you havn't figured it out yet... RAID is NOT a method for backing up data.  Now, sure it is useful for protecting data (in some forms) or speed up access to data (in other forms) but it is not, in any way, a method for protecting data.
+
+If nothing else, the journalspace incident proves this.  They were using RAID for backups.  Well, their RAID did exactly what RAID is meant to do.  Protect the data on the drive.  In their case, the data on the drive was the problem.  Having the mirror simply copied all the <em>bad data</em> across their drives.
+
+During this post, I've been trying to think of a funny, sarcastic, or otherwise memoriable way of saying this, but I've come up blank, so I'll just say it... <strong>Having a RAID array IS NOT a backup!</strong> Taking this furthur, you should never trust one form of technology to fill the role of another.
+
+The next time you're asked to implement a backup stragety, remember RAID is not your answer.

@@ -1,0 +1,22 @@
+---
+layout: post
+title: Moving /home to new partition
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+---
+<p>If /home is just a folder under / and you have a reason to put this on it's own partition the process isn't that difficult.  Here is the steps I followed to do this.</p>
+<p>First, create the new partition on the drive.  I was using LVM, so I created a new logical volume, do whatever makes sense for your system here.</p>
+<p>Make a place for the new home partition to be mounted while we transfer files.
+<pre>mkdir /mnt/newhome
+mount -t   /mnt/newhome</pre></p>
+<p>Move files from current /home to this new location.
+<pre>cd /home
+cp -ax * /mnt/newhome</pre></p>
+<p>Once all the files have copied, remove the old home directory, and mount the new partition in its place.
+<pre>rm -r /home
+mount  -t   /home</pre></p>
+<p>Edit /etc/fstab for the new partition, and you're done.</p>

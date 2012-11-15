@@ -1,0 +1,44 @@
+---
+layout: post
+title: Find Text and Find/Replace Easier Than You Think in Linux
+tags:
+- find
+- grep
+- linux
+- quickfire
+- replace
+- rpl
+- sed
+- tips
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '4'
+---
+<strong>How to search all files for a text string:</strong>
+
+<pre>grep -lr string ./ &gt; results.txt</pre>
+
+<code>-l</code> will print only the path and file names of the matches.
+
+Search all files of a certain name for a certain string:
+<pre>grep -lr string ./ | grep filename</pre>
+Yes, do specify ./ if you are doing all directories within current.
+
+(<a href="http://www.cyberciti.biz/faq/howto-search-find-file-for-text-string/">source and more info</a>)
+
+<strong>Find an replace a string in files:</strong>
+Searching for a way to do this usually leads me to finding fancy scripts that don't work right, are scary (create temp files, etc) or aren't recursive. Just have backups at hand and test the following combination of <code>find</code> and <code>sed</code> before unleashing it, because it works great! You can test it by replacing <code>sed</code> with <code>grep</code>
+
+<pre>find ./ -type f -exec sed -i ’s/string1/string2/’ {} \;</pre>
+
+Within specific file names/extentions...
+
+<pre>find ./ -iname \*.htm\* -exec sed -i 's/\-2005/\-2007/g' {} \;</pre>
+
+Don't forget to use escape \ as seen above. And if your strings contain forward slash / just use a different delimiter such as pipe | or escape it.
+
+You can also install rpl, as shown in the source pdf, for even cleaner line of code for executing your find and replace.
+
+(<a href="http://www.sb.fsu.edu/~xray/Manuals/Search+Replace-v.2.pdf">source and more info</a>) A nice pdf to keep by your side.

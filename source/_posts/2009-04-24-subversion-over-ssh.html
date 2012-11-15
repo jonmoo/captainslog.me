@@ -1,0 +1,27 @@
+---
+layout: post
+title: Subversion over SSH
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+---
+Continuing with my exploration of using some form of version control to hand configuration file managent, I've been using svn over ssh.
+
+Setting up svn access over ssh is a fairly stright forward process.  The first set is to create the actual repo on the server.
+
+<pre>mkdir /var/repo/configs</pre>
+
+Then use svnadmin to create a repository in that directory.
+
+<pre>svnadmin create /var/repo/configs</pre>
+
+Now that you have you repoistority created, it's time to start using it.  If you have an already existing set of files you'd like to import, do something similar to this...
+
+<pre>svn import . svn+ssh:///var/repo/configs -m "Initial import"</pre>
+
+If you're just starting out, checkout a working copy like such..
+
+<pre> svn checkout svn+ssh:///var/repo/configs .</pre>

@@ -1,0 +1,17 @@
+---
+layout: post
+title: Force the use of 'www' in your URL.
+tags:
+- apache
+- quickfire
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+---
+This is a pretty simple use of <code>mod_rewrite</code> to force the use www in your urls.
+<blockquote>RewriteEngine On
+RewriteCond %{HTTP_HOST} !^www\.example\.com$ [NC]
+RewriteRule .? http://www.example.com%{REQUEST_URI} [R=301,L]\</blockquote>
+The first line is only needed if mod_rewrite isn't enabled on your server (though the module does need to be enabled).  Replace example.com with your actual domain name of course.

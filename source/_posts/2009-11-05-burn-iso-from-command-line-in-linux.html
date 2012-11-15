@@ -1,0 +1,20 @@
+---
+layout: post
+title: Burn ISO from command line in Linux
+tags:
+- quickfire
+- tips
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+---
+Quick and simple way of burning an ISO image from the command line in Linux.  First, find your devices with <code>wodim</code>, the use the cdrecord command to burn the ISO image.
+<pre>$ wodim --devices
+wodim: Overview of accessible drives (1 found) :
+-------------------------------------------------------------------------
+ 0  dev='/dev/scd0'	rwrw-- : 'LITE-ON' 'DVDRW LH-20A1P'
+-------------------------------------------------------------------------
+$ cdrecord -v dev='/dev/scd0' Download/archlinux-2009.08-netinstall-i686.iso</pre>
+Then, you're done.

@@ -1,0 +1,19 @@
+---
+layout: post
+title: Creating empty files in Linux
+tags:
+- dd
+- linux
+- quickfire
+- tips
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+---
+I had a need for several files of various sizes to do some network testing with.  I found a very good us for <code>dd</code> here.
+
+<code>dd if=/dev/zero of=10mb-file.bin bs=1024k count=n</code>
+
+Using the above command (and replacing n for a value) allows the creation of empty files with the size specificed.  Need a 10Mb file, n = 10.  Need a 100Mb file... n = 100.  You get the idea.

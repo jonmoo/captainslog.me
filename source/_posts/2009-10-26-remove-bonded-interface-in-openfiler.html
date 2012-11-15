@@ -1,0 +1,17 @@
+---
+layout: post
+title: Remove bonded interface in OpenFiler
+tags:
+- openfiler
+- tips
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+---
+I decided to try and use NIC bonding in OpenFiler and while things seemed to go well at first, I did run into some issues over time.  I'm still in the process of testing, and I think most of the issues are "user error" and not so much problems with NIC bonding or OpenFiler itself.  More on that later.
+
+I was able to configure a bonded interface, and add both interfaces to it.  However, after the issues started, I wanted to remove the bond.  There is no way of doing this from within the Web UI it seems.  Easiest solution, login to the console, and delete <code>/etc/sysconfig/network-scripts/ifcfg-bond0</code> if you're using the first bond interface.
+
+After this file is deleted, <code>service network restart</code> should get you going again.

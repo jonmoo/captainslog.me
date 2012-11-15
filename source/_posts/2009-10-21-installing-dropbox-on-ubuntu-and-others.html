@@ -1,0 +1,16 @@
+---
+layout: post
+title: Installing Dropbox on Ubuntu (and others)
+tags:
+- quickfire
+- tips
+- ubuntu
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+---
+I've been using <a title="getdropbox" href="https://www.getdropbox.com/">dropbox</a> to sync and share files between my various computers for quite some time, and overall have been very pleased.  However, one area things are not so great... documentation for installation on Linux.  After having to reinstall on my notebook, I decided to somewhat document the hidden part of the process.
+
+After downloading the .deb (or other package) and installing, <a href="https://www.getdropbox.com/downloading">dropbox instructions</a> leave you hanging.  There is no dropbox folder, there is no daemon running, nothing.  The next step is simply to run <code>dropbox start -i</code> to install the daemon and launch the process to move forward.  It's simple, easy and poorly documented.  Maybe dropbox should add this to the end of their install instructions?

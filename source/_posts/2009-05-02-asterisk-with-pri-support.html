@@ -1,0 +1,15 @@
+---
+layout: post
+title: Asterisk with PRI support
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+---
+If you're going to be using Asterisk with a PRI card, there are some important steps you have to follow in the right order.
+
+Normally, I install the zaptel package then install Asterisk.  This is all great, until I need PRI support.  For that, I must also install the libpri package.
+
+Important to note, for asterisk to get PRI support you must install libpri BEFORE any other package.

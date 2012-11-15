@@ -1,0 +1,23 @@
+---
+layout: post
+title: Asterisk GotoIf Application
+tags:
+- asterisk
+- quickfire
+- tips
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+---
+The description from asterisk for this is <code>GotoIf(condition?[labeliftrue]:[labeliffalse])</code>, however for me (being somewhat new to asterisk, and not fully understanding all the little bits, this was a bit confusing. A better way of describing this, at least for those of use new to asterisk, might be <code>GotoIf(condition?[context,priority,labeliftrue]:[context,priority,labeliffalse])</code>.
+I have not used labels in the dial plan before, and when starting out with this application I read label to be a context.  This lead me to write my dial plan similar to this..
+<pre>[default]
+exten =&gt; 100,1,GoToIf(condition?true,false)
+[true]
+exten =&gt; s,1,...
+[false]
+exten =&gt; s,1,...
+</pre>
+In retrospect, it's obvious what the documentation is saying, but as I said, not being familiar with labels, I was a bit lost.

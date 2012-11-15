@@ -1,0 +1,28 @@
+---
+layout: post
+title: Launch Google Chrome and external links with incognito mode.
+tags:
+- chrome
+- google
+- quickfire
+- tips
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '4'
+---
+The instructions floating around are to place the <code>--incognito</code> switch (single - works fine for me) in your desktop shortcut. But sometimes you may be in an application like Tweek Deck, etc that links to webpages. These pages don't launch in incognito if you only fix your desktop shortcut. Here is how to do both. Google Chrome is set as the default browser in this case.
+
+(These instructions are based off of Windows XP)
+
+Right-click on your Chrome shortcut. Choose <em>P</em><em>roperties</em>. Add <em>-incognito</em> to the end:
+<pre>chrome.exe" --incognito</pre>
+To launch all web shortcuts and links from your system:
+<em>Control Panel &gt; Folder Options &gt; File Types</em>
+Select the File Type <em>URL:HyperText Transfer Protocol</em> and choose <em>Advanced
+<span style="font-style: normal">Select action </span>open<span style="font-style: normal"> and </span>edit<span style="font-style: normal">.
+Just like before add the switch to the end like this:
+</span></em>
+<pre>chrome.exe" --incognito -- "%1"</pre>
+<strong>Edit:</strong> After more digging in Google I found this tip mentioned in <a href="http://code.google.com/p/chromium/issues/detail?id=6273#c3">Google Code Chromium issues</a> (Comment 3).

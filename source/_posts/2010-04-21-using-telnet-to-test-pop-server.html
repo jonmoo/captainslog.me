@@ -1,0 +1,33 @@
+---
+layout: post
+title: Using telnet to test POP server
+tags:
+- tips
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+---
+Using telnet (or putty) it's possible to some simple tests against a POP server.  By no means exhaustive, it can give you insights in where to start troubleshooting.
+
+First, using telnet and open a connection the remote POP server
+<pre>telnet mailserver 110</pre>
+Where <code>mailserver</code> is the mail server you want to connect to.  Note that port <code>110</code> is the default port for POP, but could be different depending on your servers settings.
+
+Once connected, use <code>USER</code> and <code>PASS</code> to login.
+
+<pre>
+[root@ms1 ~] # telnet localhost 110
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'.
++OK POP3 localhost v2001.78rh server ready
+USER <code>username</code>
++OK User name accepted, password please
+PASS <code>password</code>
++OK Mailbox open, 1 messages
+QUIT
++OK Sayonara
+Connection closed by foreign host.
+</pre>

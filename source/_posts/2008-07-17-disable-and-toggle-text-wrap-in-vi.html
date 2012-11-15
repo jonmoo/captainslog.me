@@ -1,0 +1,17 @@
+---
+layout: post
+title: Disable (and toggle) text wrap in vi
+tags:
+- tips
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+---
+By default, vim will wrap lines of text that flow off the viewable screen. Normally this isn't such a bad thing. However, when you're editing source code or reading log files this can become annoying.
+It's fairly simple to disable this options, a simple <code>:set nowrap</code> will disable wrapping for the current vim session.
+Placing <code>set nowrap</code> in youre .vimrc will disable wraping for all vim sessions.
+Finally, we can use maps to create a kind of toggle switch for wrapping.
+In your .vimrc add <code>:map &lt; F2&gt; :set nowrap! &lt; CR&gt;</code>
+Now, anytime you press F2, wrapping will be toggle on and off. You can still set your default preference in .vimrc, but now you can toggle between the two settings with ease.

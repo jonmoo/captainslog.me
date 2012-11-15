@@ -1,0 +1,14 @@
+---
+layout: post
+title: Unable to use pvmove
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+---
+I needed to remove a physical volume from a LVM volume group, and found this is done using the pvmove command.  However, trying to run this, resulted in an immediate, and suprising error
+<pre># pvmove /dev/sdb1 /dev/sdc1
+Required device-mapper target(s) not detected in your kernel</pre>
+After some quick google'ing I found on this <a href="http://linux.derkeiler.com/Mailing-Lists/Debian/2005-05/2660.html">list</a> a cause, and a fix.  Appreantly, pvmove uses something provided by the raid1 module to do it's magic.  So, loading loading the dm-mirror kernel module fixes the issue and pvmove works as expected.  Thanks debian-user list :-)

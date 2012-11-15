@@ -1,0 +1,18 @@
+---
+layout: post
+title: Arrow keys not working in VMware?
+tags:
+- linux
+- quickfire
+- vmware
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+---
+Mine didn't :(
+
+Luckily Google helped me find a solutation rather quickly, and using information from <a href="http://communities.vmware.com/thread/177321">this site</a> I was able to get things working again.
+
+Basically, I added <code>xkeymap.nokeycodeMap = true </code> to <code>/etc/vmware/config</code> and things started working right.  Another on the forum suggested remapping the keys, but I didn't try that.

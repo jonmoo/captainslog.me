@@ -1,0 +1,17 @@
+---
+layout: post
+title: Extend the timeout on SSH connections
+tags:
+- linux
+- quickfire
+- ssh
+- tips
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+---
+A quick google search will quickly answer this question, but I've found myself asking it a few times lately.  Often when I let an SSH session go idle, I'll end up being disconnected.  By adding <code>ServerAliveInterval 60</code> to <code>~/.ssh/config</code> I've managed to limit this from happening.
+
+There is also a similar server side fix for this.  Consult <code>man ssh_config</code> and <code>man sshd_config</code> for more details.

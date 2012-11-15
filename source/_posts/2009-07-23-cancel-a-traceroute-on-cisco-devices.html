@@ -1,0 +1,16 @@
+---
+layout: post
+title: Cancel a traceroute on Cisco devices
+tags:
+- cisco
+- quickfire
+- tips
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+---
+Many times I've started a traceroute to either a mistyped IP address, the wrong IP or something else that I would really rather not wait for 30 hops to time out before moving on.  When doing the traceroute the device tells yous to "Type escape sequence to abort," but doesn't share what exactly this escape sequence is.  After a bit of googling and finding a few references <a href="http://zitizonx4.wordpress.com/2009/06/23/how-to-break-a-traceroute-on-cisco-devices/"> here </a> and <a href="http://www.networkliquidators.com/article-cisco-ccna-certification-five-key-combinations-you-should-know.asp">here </a> I've found an answer.
+
+This elusive key combination is CTRL+SHIFT+6 twice.  I've had mixed results using it, but it appears, that holding CTRL+SHIFT while hitting 6 works sometimes, and others retyping the entire combination works.  Either way, it's been a help.

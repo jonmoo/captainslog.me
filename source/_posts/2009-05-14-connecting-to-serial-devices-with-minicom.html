@@ -1,0 +1,17 @@
+---
+layout: post
+title: Connecting to serial devices with minicom
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+---
+I've often found the need to break out the console cable to configure a router, switch, or other device that only had a serial console.  On Windows, most folks fall back on the good old hyper terminal to get the job done.  This works great, as long as your on Windows.
+
+Since I've been getting myself to use Linux (specifically Archlinux) more and more, I've managed to find a way to connect to these devices in a fairly straightforward manner.
+
+Here comes minicom.  Included in most package management systems, is just a {yum,apt,pacman} away, and you're ready to roll.  On first run, you need to execute <code>minicom -s</code> and setup some basic configurations options.  Namely, if you're connecting to a Cisco device, set the port speed to 9600 baud, and the rest of the defaults should be fine.
+
+At this point, you're ready to start configuring.  Enjoy.

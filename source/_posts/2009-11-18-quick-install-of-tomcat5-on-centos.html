@@ -1,0 +1,22 @@
+---
+layout: post
+title: Quick install of Tomcat5 on CentOS
+tags:
+- centos
+- quickfire
+- tips
+- tomcat
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+---
+At the office, we're in the process of doing some work where we need a tomcat server.  Without having to get into things to much, I found this simple method for getting tomcat5 up and running pretty quickly.  I'm sure I've left out some important things, and I'm doubtful as to how production ready this is, but for our testing, it's working out fine.
+
+I'm using CentOS 5.3 for all of this, but I'm sure it will work with CentOS 5.4
+<pre>yum install tomcat5 tomcat5-admin-webapps tomcat5-webapps</pre>
+After this, you need to edit the tomcat-users.xml file to create a new user.Using the above, this file ends up in <code>/etc/tomcat5/tomcat5-users.xml</code> and all that needs to be added is a line similar to the following..
+<pre>user username="admin" password="p@ssw0rd" roles="admin,manager"</pre>
+I can't get wordpress to work with me on this, so you'll need to wrap the above in angle brackets, the same as all the other lines in that file.
+You can set username and password to whatever you'd like.  After this, restart tomcat (not sure if this is needed) with <code>service tomcat5 restart</code> and off you go.

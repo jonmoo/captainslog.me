@@ -1,0 +1,18 @@
+---
+layout: post
+title: Rewrite incoming CallerID
+tags:
+- asterisk
+- quickfire
+- tips
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+---
+We're using asterisk, and as part of the dial plan, a 9 is required before the number to make calls out to the PSTN.  Since our phones have a incoming call log, it would be very convient to have asterisk rewrite the CallerID value on calls from the PSTN to include this leading digit.  I found this was rather easy to accomplish.  Adding something similar to the following to whatever extension handles your incoming calls, all CallerID numbers will have a 9 added to the front.
+<code>
+exten =&gt; s,1,Set(<span style="color: green;">CALLERID(num)</span>=9<span style="color: purple;">${CALLERID(num)</span>})
+</code>
+And proceed with your normal call routing logic.  Change the preceding digit to whatever matches your system.  If you have several extensions this is going to be used with, you could benefit from using a global variable for the leading digit.

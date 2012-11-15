@@ -1,0 +1,18 @@
+---
+layout: post
+title: Linux IPv6 Neighbor Discovery
+tags:
+- ipv6
+- quickfire
+- tips
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+---
+Using <code>ping6</code> and <code>ip neigh</code> it's possible to discover other IPv6 hosts on your local network using the link-local addresses.
+First, use ping6 to ping all hosts on the local network using the IPv6 link-local address
+<pre>ping6 -c 2 -I eth0 ff02::1</pre>
+Then, use <code>ip neigh</code> to show a list of IPv6 enable hosts on the local network
+<pre>ip -f inet6 neigh</pre>

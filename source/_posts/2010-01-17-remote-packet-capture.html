@@ -1,0 +1,21 @@
+---
+layout: post
+title: Remote packet capture
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+---
+Had a need to capture some traffic on the remote machine and analyze it in Real Time (tm).  Found to solutions to this.  The first, involved just sending the output of tcpdump across the ssh session.
+<code>
+ssh host.example.org tcpump - eth0 -w - &gt; capture.pcap
+</code>
+
+The other method, picked up from the <a href="http://wiki.wireshark.org/CaptureSetup/Pipes">wireshark wiki</a> allows for the captured traffic to be viewed as it's being captured in wireshark.  This is done using a combination of ssh and a fifo pipe.  The exact command can very slightly, and I suggest reading the relevant man pages, but something similar to the following (taken from their wiki) should do the trick.
+<code>
+mkfifo /tmp/pipe
+ssh user@remote-host "tshark -w - not port 22" &gt; /tmp/pipe
+wireshark -k -i /tmp/pipe
+</code>
