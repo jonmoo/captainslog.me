@@ -8,7 +8,6 @@ tags:
  - nginx
  - tips
 ---
-###Adding www to domain with nginx
 
 With [nginx](http://wiki.nginx.org/) it's quite easy to add www to your domain name when access your website.
 ```
