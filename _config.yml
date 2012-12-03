@@ -2,8 +2,8 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://www.thejonmoore.com
-title: My Octopress Blog
+url: http://www.captainslog.me
+title: Captain's Log
 subtitle: A blogging framework for hackers.
 author: Jon Moore 
 simple_search: http://google.com/search
@@ -93,7 +93,7 @@ disqus_short_name:
 disqus_show_comment_count: false
 
 # Google Analytics
-google_analytics_tracking_id:
+google_analytics_tracking_id: UA-27975524-4
 
 # Facebook Like
 facebook_like: false
